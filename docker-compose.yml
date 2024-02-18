@@ -1,0 +1,18 @@
+services:
+  discordbot:
+    image: node:lts
+    container_name: discordbot
+    working_dir: /home
+    command: node src/index.js
+    volumes:
+      - ./src:/home/src:ro
+      - ./package.json:/home/package.json:ro
+      - ./package-lock.json:/home/package-lock.json:ro
+      - ./node_modules:/home/node_modules
+    environment:
+      NODE_ENV: production
+    ports:
+      - ${PORT}:${PORT}
+    env_file: .env
+    tty: true
+    stdin_open: true

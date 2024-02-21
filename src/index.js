@@ -34,7 +34,7 @@ const updateMessage = () => {
 
 	Object.keys(servers).forEach(id => {
 		const serverData = servers[id]
-		embed.addFields({ name: serverData.name, value: `Текущий онлайн: **${serverData.online}**\nРежим: **${serverData.gamemode} - ${serverData.map}**\n[Подключиться](steam://connect/${serverData.ip})` })
+		embed.addFields({ name: serverData.name, value: `Текущий онлайн: **${serverData.online}**\nРежим: **${serverData.gamemode} - ${serverData.map}**\n${serverData.ip}` })
 	})
 
 	client.channels.fetch(process.env.BOT_CHANNEL_ID).then(chan => {
